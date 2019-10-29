@@ -20,8 +20,8 @@
 
 ## Start Spark
 1. Once accessing the polynote, click the `Configuration & Dependencies` to expand it.
-  ![Configuration & Dependencies](polynote-spark1.png)
+  ![Configuration & Dependencies](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynote-spark/polynote-spark1.png)
 2. Add some Spark config (e.g. `spark.master`: `local[*]`) and click the `Save & Restart` button.
-  ![Save & Restart](polynote-spark2.png)
+  ![Save & Restart](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynote-spark/polynote-spark2.png)
 3. Once Spark's started, you can see `Spark Web UI` link on the top right-hand side.
-  ![Spark Web UI link](polynote-spark3.png) 
+  ![Spark Web UI link](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynote-spark/polynote-spark3.png) 
