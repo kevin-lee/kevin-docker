@@ -1,11 +1,11 @@
 # Polynote Spark
 
-* Pull the Polynote with Spark image
+## Pull the Polynote with Spark image
   ```bash
   docker pull k3vin/polynote-spark
   ```
 
-* Run
+## Run
   ```bash
   docker run -d -p 8192:8192 -p 4040:4040 k3vin/polynote-spark:latest
   ```
@@ -16,5 +16,12 @@
   docker run -d -p 8192:8192 -p 4040:4040 -v /path/to/host/polynote/notebooks:/polynote/notebooks k3vin/polynote-spark:latest
   ``` 
 
-
 * Open the browser and access http://localhost:8192
+
+## Start Spark
+1. Once accessing the polynote, click the `Configuration & Dependencies` to expand it.
+  ![Configuration & Dependencies](polynote-spark1.png)
+2. Add some Spark config (e.g. `spark.master`: `local[*]`) and click the `Save & Restart` button.
+  ![Save & Restart](polynote-spark2.png)
+3. Once Spark's started, you can see `Spark Web UI` link on the top right-hand side.
+  ![Spark Web UI link](polynote-spark3.png) 

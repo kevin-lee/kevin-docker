@@ -1,7 +1,3 @@
 listen:
   host: 0.0.0.0
   port: 8192
-
-spark:
-  spark.driver.userClasspathFirst: true
-  spark.executor.userClasspathFirst: true

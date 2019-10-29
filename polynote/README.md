@@ -1,11 +1,11 @@
 # Polynote
 
-* Pull the polynote image
+## Pull the polynote image
   ```bash
   docker pull k3vin/polynote
   ```
 
-* Run
+## Run
   ```bash
   docker run -d -p 8192:8192 k3vin/polynote:latest
   ```
