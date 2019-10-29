@@ -1,15 +1,20 @@
 # Polynote Spark
 
 * Pull the Polynote with Spark image
-```
-docker pull k3vin/polynote-spark
-```
+  ```bash
+  docker pull k3vin/polynote-spark
+  ```
 
 * Run
-```
-docker run -d -p 8192:8192 -p 4040:4040 k3vin/polynote-spark:latest
-```
+  ```bash
+  docker run -d -p 8192:8192 -p 4040:4040 k3vin/polynote-spark:latest
+  ```
+  **NOTE: port `4040` is for Spark Web UI.**
+  
+  Or If you want to keep the notebook after stopping the docker, specify the location of `notebooks` folder.
+  ```bash
+  docker run -d -p 8192:8192 -p 4040:4040 -v /path/to/host/polynote/notebooks:/polynote/notebooks k3vin/polynote-spark:latest
+  ``` 
 
-  **NOTE: port 4040 is for Spark Web UI.**
 
 * Open the browser and access http://localhost:8192
