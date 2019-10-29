@@ -2,7 +2,7 @@
 
 ## Pull the Polynote with Spark image
   ```bash
-  docker pull k3vin/polynote-spark
+  docker pull k3vin/polynote-spark:latest
   ```
 
 ## Run
