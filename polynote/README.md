@@ -1,5 +1,7 @@
 # Polynote
 
+Version: `0.2.9`
+
 ## Pull the polynote image
   ```bash
   docker pull k3vin/polynote:latest

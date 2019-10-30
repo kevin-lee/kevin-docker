@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y gnupg2 software-properties-common \
 
 ENV JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-jdk-hotspot
 
-ENV POLYNOTE_VERSION=0.2.8
+ENV POLYNOTE_VERSION=0.2.9
 
 RUN wget https://github.com/polynote/polynote/releases/download/${POLYNOTE_VERSION}/polynote-dist.tar.gz \
     && tar -zxvf polynote-dist.tar.gz \
