@@ -1,5 +1,7 @@
 # Polynote Spark
 
+Version: `0.2.9`
+
 ## Pull the Polynote with Spark image
   ```bash
   docker pull k3vin/polynote-spark:latest
