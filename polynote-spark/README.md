@@ -1,6 +1,6 @@
 # Polynote Spark
 
-Version: `0.2.9`
+Version: `0.2.11`
 
 ## Pull the Polynote with Spark image
   ```bash
