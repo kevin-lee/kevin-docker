@@ -2,6 +2,8 @@
 
 Version: `0.2.11`
 
+It is Polynote without Spark supporting both Scala and Python. It also has `NumPy` and `pandas`.
+
 ## Pull the Polynote with Spark image
   ```bash
   docker pull k3vin/polynote-spark:latest
