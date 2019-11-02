@@ -14,7 +14,7 @@ RUN wget https://github.com/polynote/polynote/releases/download/${POLYNOTE_VERSI
     && tar -zxvf polynote-dist.tar.gz \
     && rm polynote-dist.tar.gz
 
-COPY polynote-spark/config.yml /polynote/config.yml
+COPY polynotes/polynote-spark/config.yml /polynote/config.yml
 
 EXPOSE 8192
 

@@ -14,7 +14,7 @@ RUN wget https://github.com/polynote/polynote/releases/download/${POLYNOTE_VERSI
     && tar -zxvf polynote-dist.tar.gz \
     && rm polynote-dist.tar.gz
 
-COPY polynote/config.yml /polynote/config.yml
+COPY polynotes/polynote/config.yml /polynote/config.yml
 
 EXPOSE 8192
 
