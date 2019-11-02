@@ -32,4 +32,6 @@ ENV PATH="$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin"
 RUN apt-get install -y python3 python3-dev python3-pip \
     && pip3 install jep jedi pyspark virtualenv numpy pandas
 
+ENV PYSPARK_ALLOW_INSECURE_GATEWAY=1
+
 CMD ["/bin/bash", "/polynote/polynote"]
