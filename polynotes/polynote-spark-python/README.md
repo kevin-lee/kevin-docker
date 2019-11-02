@@ -24,8 +24,8 @@ It is Polynote with Spark supporting both Scala and Python. It also has `NumPy` 
 
 ## Start Spark
 1. Once accessing the polynote, click the `Configuration & Dependencies` to expand it.
-  ![Configuration & Dependencies](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynote-spark-python/polynote-spark-python1.png)
+  ![Configuration & Dependencies](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynotes/polynote-spark-python/polynote-spark-python1.png)
 2. Add some Spark config (e.g. `spark.master`: `local[*]`) and click the `Save & Restart` button.
-  ![Save & Restart](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynote-spark-python/polynote-spark-python2.png)
+  ![Save & Restart](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynotes/polynote-spark-python/polynote-spark-python2.png)
 3. Once Spark's started, you can see `Spark Web UI` link on the top right-hand side.
-  ![Spark Web UI link](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynote-spark-python/polynote-spark-python3.png) 
+  ![Spark Web UI link](https://github.com/Kevin-Lee/kevin-docker/raw/master/polynotes/polynote-spark-python/polynote-spark-python3.png) 
