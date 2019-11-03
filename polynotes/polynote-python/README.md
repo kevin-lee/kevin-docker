@@ -2,7 +2,7 @@
 
 ## Versions
 * Polynote: `0.2.11`
-* Scala: `2.12`
+* Scala: `2.11`
 
 ## Pull the polynote image
   ```bash
