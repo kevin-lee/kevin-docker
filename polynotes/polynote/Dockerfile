@@ -10,9 +10,9 @@ ENV JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-jdk-hotspot
 
 ENV POLYNOTE_VERSION=0.2.11
 
-RUN wget https://github.com/polynote/polynote/releases/download/${POLYNOTE_VERSION}/polynote-dist.tar.gz \
-    && tar -zxvf polynote-dist.tar.gz \
-    && rm polynote-dist.tar.gz
+RUN wget https://github.com/polynote/polynote/releases/download/${POLYNOTE_VERSION}/polynote-dist-2.12.tar.gz \
+    && tar -zxvf polynote-dist-2.12.tar.gz \
+    && rm polynote-dist-2.12.tar.gz
 
 COPY polynotes/polynote/config.yml /polynote/config.yml
 

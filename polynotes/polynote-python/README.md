@@ -1,6 +1,8 @@
 # Polynote (Python)
 
-Version: `0.2.11`
+## Versions
+* Polynote: `0.2.11`
+* Scala: `2.12`
 
 ## Pull the polynote image
   ```bash
