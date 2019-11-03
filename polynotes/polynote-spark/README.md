@@ -1,6 +1,8 @@
 # Polynote Spark
 
-Version: `0.2.11`
+## Versions
+* Polynote: `0.2.11`
+* Scala: `2.12`
 
 It is Polynote without Spark supporting both Scala and Python. It also has `NumPy` and `pandas`.
 
