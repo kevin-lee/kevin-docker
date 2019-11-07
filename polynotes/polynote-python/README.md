@@ -1,7 +1,7 @@
 # Polynote (Python)
 
 ## Versions
-* Polynote: `0.2.11`
+* Polynote: `0.2.12`
 * Scala: `2.11`
 
 ## Pull the polynote image

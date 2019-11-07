@@ -1,7 +1,7 @@
 # Polynote Spark (Scala and Python)
 
 ## Versions
-* Polynote: `0.2.11`
+* Polynote: `0.2.12`
 * Scala: `2.11`
 
 It is Polynote with Spark supporting both Scala and Python. It also has `NumPy` and `pandas`.
