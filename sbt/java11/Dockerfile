@@ -1,15 +1,25 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
-RUN apt-get update && apt-get install -y gnupg2 software-properties-common \
-    && add-apt-repository --yes ppa:rpardini/adoptopenjdk \
-    && apt-get update \
-    && apt-get install -y adoptopenjdk-11-jdk-hotspot-installer \
-    && apt-get install -y vim
+RUN apt-get update \
+  && apt-get install -y wget gnupg2 apt-transport-https software-properties-common vim git-core
 
-ENV JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-jdk-hotspot
+RUN UBUNTU_CODENAME=$(cat /etc/os-release | grep UBUNTU_CODENAME | cut -d = -f 2) \
+  && wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
+  && echo "deb https://adoptopenjdk.jfrog.io/adoptopenjdk/deb ${UBUNTU_CODENAME} main" | tee /etc/apt/sources.list.d/adoptopenjdk.list \
+  && apt-get update \
+  && apt-get install -y adoptopenjdk-11-hotspot
 
-RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list \
-    && apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823 \
-    && apt-get update \
-    && apt-get install -y git-core sbt \
-    && sbt sbtVersion
+ENV JAVA_HOME=/usr/lib/jvm/adoptopenjdk-11-hotspot-amd64
+
+RUN SBT_VERSION=1.5.0 \
+  && USR_SHARE=/usr/share \
+  && rm -f ${USR_SHARE}/sbt \
+  && rm -f /usr/bin/sbt \
+  && echo "Download URL /tmp/sbt-${SBT_VERSION}.tgz https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz" \
+  && wget --output-document=/tmp/sbt-${SBT_VERSION}.tgz https://github.com/sbt/sbt/releases/download/v${SBT_VERSION}/sbt-${SBT_VERSION}.tgz \
+  && tar -xf /tmp/sbt-${SBT_VERSION}.tgz -C ${USR_SHARE} \
+  && rm /tmp/sbt-${SBT_VERSION}.tgz \
+  && ln -s ${USR_SHARE}/sbt/bin/sbt /usr/bin/sbt \
+  && chmod u+x /usr/bin/sbt \
+  && which sbt \
+  && cd /tmp && sbt sbtVersion
