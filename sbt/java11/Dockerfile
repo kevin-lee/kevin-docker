@@ -9,7 +9,7 @@ RUN mkdir -p /etc/apt/keyrings \
   && apt update
   
 RUN apt install -y temurin-11-jdk \
-  && export JAVA_HOME=/usr/lib/jvm/temurin-11-jdk-$(dpkg --print-architecture)
+  && echo "export JAVA_HOME=/usr/lib/jvm/temurin-11-jdk-$(dpkg --print-architecture)" >> /etc/bash.bashrc
 
 ARG SBT_VERSION_ARG=1.8.2
 
