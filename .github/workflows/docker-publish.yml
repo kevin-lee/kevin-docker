@@ -33,6 +33,12 @@ jobs:
       # with sigstore/fulcio when running outside of PRs.
       id-token: write
 
+    strategy:
+      matrix:
+        docker:
+          - { name: "sbt-java8", path: "sbt/java8" }
+          - { name: "sbt-java11", path: "sbt/java11" }
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -68,29 +74,41 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: Set Repository Owner to Lowercase
+        id: repo_owner
+        run: |
+          REPOSITORY_OWNER_LOWER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          echo "REPOSITORY_OWNER_LOWER=$REPOSITORY_OWNER_LOWER" >> $GITHUB_ENV
+
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-      - name: Build and push Docker image (sbt/java8)
-        id: build-and-push-sbt-java8
-        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
-        with:
-          context: sbt/java8
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+      # - name: Build and push Docker image (${{ matrix.docker.path }})
+      #   id: build-and-push-${{ matrix.docker.name }}
+      #   uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+      #   with:
+      #     context: ${{ matrix.docker.path }}
+      #     push: ${{ github.event_name != 'pull_request' }}
+      #     tags: ${{ steps.meta.outputs.tags }}
+      #     labels: ${{ steps.meta.outputs.labels }}
+      #     cache-from: type=gha
+      #     cache-to: type=gha,mode=max
 
-      - name: Build and push Docker image (sbt/java11)
-        id: build-and-push-sbt-java11
-        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
+      # - name: Build and Push Docker Image (${{ matrix.docker.path }})
+      #   id: build-and-push
+      #   working-directory: ${{ matrix.docker.path }}
+      #   run: |
+      #     REPOSITORY_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+      #     IMAGE_NAME=ghcr.io/$REPOSITORY_OWNER/${{ matrix.docker.name }}
+      #     IMAGE_TAG=latest
+      #     docker build -t $IMAGE_NAME:$IMAGE_TAG .
+      #     docker push $IMAGE_NAME:$IMAGE_TAG
+      - name: Build and Push Docker Image (${{ matrix.docker.path }})
+        id: build-and-push
+        uses: docker/build-push-action@v2
         with:
-          context: sbt/java11
+          context: ${{ matrix.docker.path }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: ghcr.io/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}:latest
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
@@ -103,4 +121,4 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+        run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
