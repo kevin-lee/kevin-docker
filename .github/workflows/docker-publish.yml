@@ -38,6 +38,7 @@ jobs:
         docker:
           - { name: "sbt-java8", path: "sbt/java8" }
           - { name: "sbt-java11", path: "sbt/java11" }
+          - { name: "sbt-java17", path: "sbt/java17" }
 
     steps:
       - name: Checkout repository
@@ -94,13 +95,13 @@ jobs:
           tags: ghcr.io/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}:latest
           labels: |
             org.opencontainers.image.title=kevin-docker/${{ matrix.docker.name }}
-            org.opencontainers.image.description=${{ steps.meta.outputs.labels.description }}
-            org.opencontainers.image.url=${{ steps.meta.outputs.labels.url }}
-            org.opencontainers.image.source=${{ steps.meta.outputs.labels.source }}
-            org.opencontainers.image.version=${{ steps.meta.outputs.labels.version }}
-            org.opencontainers.image.created=${{ steps.meta.outputs.labels.created }}
-            org.opencontainers.image.revision=${{ steps.meta.outputs.labels.revision }}
-            org.opencontainers.image.licenses=${{ steps.meta.outputs.labels.licenses }}
+            org.opencontainers.image.description=${{ steps.meta.outputs.labels[1] }}
+            org.opencontainers.image.url=${{ steps.meta.outputs.labels[2] }}
+            org.opencontainers.image.source=${{ steps.meta.outputs.labels[3] }}
+            org.opencontainers.image.version=${{ steps.meta.outputs.labels[4] }}
+            org.opencontainers.image.created=${{ steps.meta.outputs.labels[5] }}
+            org.opencontainers.image.revision=${{ steps.meta.outputs.labels[6] }}
+            org.opencontainers.image.licenses=${{ steps.meta.outputs.labels[7] }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
