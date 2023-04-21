@@ -84,34 +84,25 @@ jobs:
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
-      # - name: Build and push Docker image (${{ matrix.docker.path }})
-      #   id: build-and-push-${{ matrix.docker.name }}
-      #   uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
-      #   with:
-      #     context: ${{ matrix.docker.path }}
-      #     push: ${{ github.event_name != 'pull_request' }}
-      #     tags: ${{ steps.meta.outputs.tags }}
-      #     labels: ${{ steps.meta.outputs.labels }}
-      #     cache-from: type=gha
-      #     cache-to: type=gha,mode=max
-
-      # - name: Build and Push Docker Image (${{ matrix.docker.path }})
-      #   id: build-and-push
-      #   working-directory: ${{ matrix.docker.path }}
-      #   run: |
-      #     REPOSITORY_OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-      #     IMAGE_NAME=ghcr.io/$REPOSITORY_OWNER/${{ matrix.docker.name }}
-      #     IMAGE_TAG=latest
-      #     docker build -t $IMAGE_NAME:$IMAGE_TAG .
-      #     docker push $IMAGE_NAME:$IMAGE_TAG
       - name: Build and Push Docker Image (${{ matrix.docker.path }})
         id: build-and-push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: ${{ matrix.docker.path }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ghcr.io/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}:latest
+          labels: |
+            org.opencontainers.image.title=kevin-docker/${{ matrix.docker.name }}
+            org.opencontainers.image.description=${{ steps.meta.outputs.labels.description }}
+            org.opencontainers.image.url=${{ steps.meta.outputs.labels.url }}
+            org.opencontainers.image.source=${{ steps.meta.outputs.labels.source }}
+            org.opencontainers.image.version=${{ steps.meta.outputs.labels.version }}
+            org.opencontainers.image.created=${{ steps.meta.outputs.labels.created }}
+            org.opencontainers.image.revision=${{ steps.meta.outputs.labels.revision }}
+            org.opencontainers.image.licenses=${{ steps.meta.outputs.labels.licenses }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
