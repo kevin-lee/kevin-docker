@@ -79,7 +79,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.4.0
         with:
-          images: ${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}
+          images: ${{ env.REGISTRY }}/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}
           labels: |
             org.opencontainers.image.title=${{ matrix.docker.name }}
 
@@ -92,7 +92,7 @@ jobs:
           context: ${{ matrix.docker.path }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }}
           cache-to: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }},mode=max
@@ -169,7 +169,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4.4.0
         with:
-          images: ${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}
+          images: ${{ env.REGISTRY }}/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}
           labels: |
             org.opencontainers.image.title=${{ matrix.docker.name }}
 
@@ -182,7 +182,7 @@ jobs:
           context: ${{ matrix.docker.path }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }}
           cache-to: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }},mode=max
