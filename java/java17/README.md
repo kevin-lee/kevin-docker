@@ -17,5 +17,5 @@
 
 * Run in interactive mode
   ```shell
-  docker run -i -t ghcr.io/kevin-lee/java17 bash
+  docker run -i -t ghcr.io/kevin-lee/java17:main bash
   ```

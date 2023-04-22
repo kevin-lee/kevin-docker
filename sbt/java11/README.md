@@ -2,7 +2,7 @@
 
 * Build locally
   ```shell
-  docker build -t sbt-java11:latest .
+  docker build -t sbt-java11:main .
   ```
 
 * Run locally in interactive mode
@@ -12,10 +12,10 @@
 
 * Pull the image
   ```shell
-  docker pull ghcr.io/kevin-lee/sbt-java11:latest
+  docker pull ghcr.io/kevin-lee/sbt-java11:main
   ```
 
 * Run in interactive mode
   ```shell
-  docker run -i -t ghcr.io/kevin-lee/sbt-java11 bash
+  docker run -i -t ghcr.io/kevin-lee/sbt-java11:main bash
   ```
