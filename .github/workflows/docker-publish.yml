@@ -122,9 +122,9 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "java8",  path: "java8" }
-          - { name: "java11", path: "java11" }
-          - { name: "java17", path: "java17" }
+          - { name: "java8",  path: "java/java8" }
+          - { name: "java11", path: "java/java11" }
+          - { name: "java17", path: "java/java17" }
 
     steps:
       - name: Checkout repository
