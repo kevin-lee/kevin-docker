@@ -1,4 +1,4 @@
-# sbt + Java 11 (Adoptium)
+# Node + Java 11 (Adoptium) + SBT
 
 * Build locally
   ```shell
