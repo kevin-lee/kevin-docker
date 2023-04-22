@@ -1,16 +1,21 @@
 # sbt + Java 17 (Adoptium)
 
-* Build Locally
-```shell
-docker build -t k3vin/sbt-java17:latest .
-```
+* Build locally
+  ```shell
+  docker build -t sbt-java17:latest .
+  ```
+
+* Run locally in interactive mode
+  ```shell
+  docker run -i -t sbt-java17 bash
+  ```
 
 * Pull the image
-  ```
-  docker pull k3vin/sbt-java17
+  ```shell
+  docker pull ghcr.io/kevin-lee/sbt-java17:latest
   ```
 
 * Run in interactive mode
-  ```
-  docker run -i -t k3vin/sbt-java17:latest bash
+  ```shell
+  docker run -i -t ghcr.io/kevin-lee/sbt-java17 bash
   ```
