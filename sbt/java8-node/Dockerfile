@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/sbt-java8:latest
+FROM ghcr.io/kevin-lee/sbt-java8:main
 
 # Node
 ARG NODE_16_VERSION_ARG=16.20.0
