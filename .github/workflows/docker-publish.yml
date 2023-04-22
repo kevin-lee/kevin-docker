@@ -124,6 +124,7 @@ jobs:
     strategy:
       matrix:
         docker:
+          - { name: "sbt-java11-node", path: "sbt/java11-node" }
           - { name: "sbt-java17-node", path: "sbt/java17-node" }
 
     steps:
