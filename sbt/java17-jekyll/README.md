@@ -1,4 +1,4 @@
-# Node + Java 11 (Adoptium) + SBT + Jekyll
+# Node + Java 17 (Adoptium) + SBT + Jekyll
 
 * Pull the image
   ```

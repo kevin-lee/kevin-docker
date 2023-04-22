@@ -2,10 +2,10 @@
 
 * Pull the image
   ```
-  docker pull k3vin/sbt-java8-jekyll
+  docker pull ghcr.io/kevin-lee/sbt-java8-jekyll:main
   ```
 
 * Run in interactive mode
   ```
-  docker run -i -t k3vin/sbt-java8-jekyll:latest bash
+  docker run -i -t ghcr.io/kevin-lee/sbt-java8-jekyll:main bash
   ```
