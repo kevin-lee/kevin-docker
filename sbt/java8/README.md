@@ -1,16 +1,21 @@
 # sbt + Java 8 (Adoptium)
 
-* Build Locally
-```shell
-docker build -t k3vin/sbt-java8:latest .
-```
+* Build locally
+  ```shell
+  docker build -t sbt-java8:latest .
+  ```
+
+* Run locally in interactive mode
+  ```shell
+  docker run -i -t sbt-java8 bash
+  ```
 
 * Pull the image
-  ```
-  docker pull k3vin/sbt-java8
+  ```shell
+  docker pull ghcr.io/kevin-lee/sbt-java8:latest
   ```
 
 * Run in interactive mode
-  ```
-  docker run -i -t k3vin/sbt-java8:latest bash
+  ```shell
+  docker run -i -t ghcr.io/kevin-lee/sbt-java8 bash
   ```
