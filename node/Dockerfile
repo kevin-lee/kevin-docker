@@ -1,4 +1,7 @@
-FROM ghcr.io/kevin-lee/sbt-java17:main
+FROM ubuntu:22.04
+
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends curl wget gnupg2 apt-transport-https software-properties-common vim git-core
 
 # Node
 ARG NODE_16_VERSION_ARG=16.20.0

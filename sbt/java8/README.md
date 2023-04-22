@@ -1,4 +1,4 @@
-# sbt + Java 8 (Adoptium)
+# Node + Java 8 (Adoptium) + SBT
 
 * Build locally
   ```shell
