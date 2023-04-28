@@ -18,3 +18,11 @@ RUN export NVM_DIR="$HOME/.nvm" \
   && nvm install $NODE_18_VERSION_ARG \
   && nvm install $NODE_19_VERSION_ARG \
   && nvm alias default $DEFAULT_NODE_VERSION_ARG
+
+# Create a script to source nvm.sh
+RUN echo 'source $HOME/.nvm/nvm.sh' > /root/env_setup.sh
+
+# Set BASH_ENV to source the env_setup.sh script in non-interactive shells
+ENV BASH_ENV=/root/env_setup.sh
+
+CMD ["/bin/bash"]
