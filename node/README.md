@@ -2,12 +2,12 @@
 
 * Build locally
   ```shell
-  docker build -t node:main .
+  docker build -t node:local .
   ```
 
 * Run locally in interactive mode
   ```shell
-  docker run -i -t node bash
+  docker run -i -t node:local bash
   ```
 
 * Pull the image
