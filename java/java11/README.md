@@ -2,12 +2,12 @@
 
 * Build locally
   ```shell
-  docker build -t java11:main .
+  docker build -t java11:local .
   ```
 
 * Run locally in interactive mode
   ```shell
-  docker run -i -t java11 bash
+  docker run -i -t java11:local bash
   ```
 
 * Pull the image

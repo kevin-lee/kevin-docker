@@ -2,12 +2,12 @@
 
 * Build locally
   ```shell
-  docker build -t sbt-java17:main .
+  docker build -t sbt-java17:local .
   ```
 
 * Run locally in interactive mode
   ```shell
-  docker run -i -t sbt-java17 bash
+  docker run -i -t sbt-java17:local bash
   ```
 
 * Pull the image

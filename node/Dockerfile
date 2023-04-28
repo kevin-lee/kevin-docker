@@ -24,5 +24,3 @@ RUN echo 'source $HOME/.nvm/nvm.sh' > /root/env_setup.sh
 
 # Set BASH_ENV to source the env_setup.sh script in non-interactive shells
 ENV BASH_ENV=/root/env_setup.sh
-
-CMD ["/bin/bash"]
