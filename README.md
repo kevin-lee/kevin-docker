@@ -5,3 +5,6 @@
 
 ## v2
 `v2` contains Docker image with sbt `1.8.3`.
+
+## v3
+`v3` contains Docker image with sbt `1.9.0`.
