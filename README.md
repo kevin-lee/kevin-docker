@@ -11,3 +11,6 @@
 
 ## v4
 `v4` contains Docker image with sbt `1.9.1`.
+
+## v5
+`v5` contains Docker image with sbt `1.9.2`.
