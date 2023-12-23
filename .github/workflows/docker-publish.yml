@@ -7,6 +7,7 @@ name: Docker
 
 on:
   schedule:
+    # scheduled task will run at 23:05 (11:05 PM) every Sunday
     - cron: '5 23 * * 0'
   push:
     branches: [ "main" ]
