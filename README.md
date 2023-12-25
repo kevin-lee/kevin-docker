@@ -1,5 +1,8 @@
 # kevin-docker
 
+## v8
+`v8` contains Docker image with sbt `1.9.5`.
+
 ## v7
 `v7` contains Docker image with sbt `1.9.4`.
 
