@@ -1,7 +1,10 @@
 # kevin-docker
 
+## v14
+`v14` contains Docker image with sbt `1.9.9` with Java8, 11, 17 and 21.
+
 ## v13
-`v13` contains Docker image with sbt `1.9.9`.
+`v13` contains Docker image with sbt `1.9.9` with Java8, 11 and 17.
 
 ## v11
 `v11` contains Docker image with sbt `1.9.8`.
