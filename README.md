@@ -1,7 +1,10 @@
 # kevin-docker
 
+## v13
+`v13` contains Docker image with sbt `1.9.9`.
+
 ## v11
-`v10` contains Docker image with sbt `1.9.8`.
+`v11` contains Docker image with sbt `1.9.8`.
 
 ## v10
 `v10` contains Docker image with sbt `1.9.7`.
