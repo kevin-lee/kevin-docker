@@ -306,10 +306,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "sbt-java8-temurin-codecov",  path: "sbt/java8-codecov" }
-          - { name: "sbt-java11-temurin-codecov", path: "sbt/java11-codecov" }
-          - { name: "sbt-java17-temurin-codecov", path: "sbt/java17-codecov" }
-          - { name: "sbt-java21-temurin-codecov", path: "sbt/java21-codecov" }
+          - { name: "sbt-java8-temurin-codecov",  path: "sbt/temurin/java8-codecov" }
+          - { name: "sbt-java11-temurin-codecov", path: "sbt/temurin/java11-codecov" }
+          - { name: "sbt-java17-temurin-codecov", path: "sbt/temurin/java17-codecov" }
+          - { name: "sbt-java21-temurin-codecov", path: "sbt/temurin/java21-codecov" }
 
     steps:
       - name: Checkout repository
@@ -398,10 +398,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "sbt-java8-temurin-jekyll",  path: "sbt/java8-jekyll" }
-          - { name: "sbt-java11-temurin-jekyll", path: "sbt/java11-jekyll" }
-          - { name: "sbt-java17-temurin-jekyll", path: "sbt/java17-jekyll" }
-          - { name: "sbt-java21-temurin-jekyll", path: "sbt/java21-jekyll" }
+          - { name: "sbt-java8-temurin-jekyll",  path: "sbt/temurin/java8-jekyll" }
+          - { name: "sbt-java11-temurin-jekyll", path: "sbt/temurin/java11-jekyll" }
+          - { name: "sbt-java17-temurin-jekyll", path: "sbt/temurin/java17-jekyll" }
+          - { name: "sbt-java21-temurin-jekyll", path: "sbt/temurin/java21-jekyll" }
 
     steps:
       - name: Checkout repository
