@@ -126,6 +126,7 @@ jobs:
           - { name: "java8",  path: "java/java8" }
           - { name: "java11", path: "java/java11" }
           - { name: "java17", path: "java/java17" }
+          - { name: "java21", path: "java/java21" }
 
     steps:
       - name: Checkout repository
@@ -216,6 +217,7 @@ jobs:
           - { name: "sbt-java8",  path: "sbt/java8" }
           - { name: "sbt-java11", path: "sbt/java11" }
           - { name: "sbt-java17", path: "sbt/java17" }
+          - { name: "sbt-java21", path: "sbt/java21" }
 
     steps:
       - name: Checkout repository
@@ -307,6 +309,7 @@ jobs:
           - { name: "sbt-java8-codecov",  path: "sbt/java8-codecov" }
           - { name: "sbt-java11-codecov", path: "sbt/java11-codecov" }
           - { name: "sbt-java17-codecov", path: "sbt/java17-codecov" }
+          - { name: "sbt-java21-codecov", path: "sbt/java21-codecov" }
 
     steps:
       - name: Checkout repository
@@ -398,6 +401,7 @@ jobs:
           - { name: "sbt-java8-jekyll",  path: "sbt/java8-jekyll" }
           - { name: "sbt-java11-jekyll", path: "sbt/java11-jekyll" }
           - { name: "sbt-java17-jekyll", path: "sbt/java17-jekyll" }
+          - { name: "sbt-java21-jekyll", path: "sbt/java21-jekyll" }
 
     steps:
       - name: Checkout repository
