@@ -22,7 +22,7 @@ env:
 
 
 jobs:
-  build-node:
+  build-ubuntu-node:
 
     runs-on: ubuntu-latest
     permissions:
@@ -35,7 +35,7 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "node", path: "node" }
+          - { name: "ubuntu-node", path: "ubuntu/node" }
 
     steps:
       - name: Checkout repository
@@ -109,8 +109,8 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
-  build-java-temurin:
-    needs: build-node
+  build-ubuntu-java-temurin:
+    needs: build-ubuntu-node
 
     runs-on: ubuntu-latest
     permissions:
@@ -123,10 +123,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "java8-temurin",  path: "java/temurin/java8" }
-          - { name: "java11-temurin", path: "java/temurin/java11" }
-          - { name: "java17-temurin", path: "java/temurin/java17" }
-          - { name: "java21-temurin", path: "java/temurin/java21" }
+          - { name: "ubuntu-java8-temurin",  path: "ubuntu/java/temurin/java8" }
+          - { name: "ubuntu-java11-temurin", path: "ubuntu/java/temurin/java11" }
+          - { name: "ubuntu-java17-temurin", path: "ubuntu/java/temurin/java17" }
+          - { name: "ubuntu-java21-temurin", path: "ubuntu/java/temurin/java21" }
 
     steps:
       - name: Checkout repository
@@ -200,8 +200,8 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
-  build-java-liberica:
-    needs: build-node
+  build-ubuntu-java-liberica:
+    needs: build-ubuntu-node
 
     runs-on: ubuntu-latest
     permissions:
@@ -214,10 +214,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "java8-liberica",  path: "java/liberica/java8" }
-          - { name: "java11-liberica", path: "java/liberica/java11" }
-          - { name: "java17-liberica", path: "java/liberica/java17" }
-          - { name: "java21-liberica", path: "java/liberica/java21" }
+          - { name: "ubuntu-java8-liberica",  path: "ubuntu/java/liberica/java8" }
+          - { name: "ubuntu-java11-liberica", path: "ubuntu/java/liberica/java11" }
+          - { name: "ubuntu-java17-liberica", path: "ubuntu/java/liberica/java17" }
+          - { name: "ubuntu-java21-liberica", path: "ubuntu/java/liberica/java21" }
 
     steps:
       - name: Checkout repository
@@ -291,8 +291,8 @@ jobs:
         # against the sigstore community Fulcio instance.
         run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
-  build-sbt-temurin:
-    needs: build-java-temurin
+  build-ubuntu-sbt-temurin:
+    needs: build-ubuntu-java-temurin
 
     runs-on: ubuntu-latest
     permissions:
@@ -305,102 +305,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "sbt-java8-temurin",  path: "sbt/temurin/java8" }
-          - { name: "sbt-java11-temurin", path: "sbt/temurin/java11" }
-          - { name: "sbt-java17-temurin", path: "sbt/temurin/java17" }
-          - { name: "sbt-java21-temurin", path: "sbt/temurin/java21" }
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      # Install the cosign tool except on PR
-      # https://github.com/sigstore/cosign-installer
-      - name: Install cosign
-        if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@59acb6260d9c0ba8f4a2f9d9b48431a222b68e20 #v3.0.3
-        with:
-          cosign-release: 'v1.13.1'
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.1.0
-
-      # Workaround: https://github.com/docker/build-push-action/issues/461
-      - name: Setup Docker buildx
-        uses: docker/setup-buildx-action@v3.4.0
-
-      # Login against a Docker registry except on PR
-      # https://github.com/docker/login-action
-      - name: Log into registry ${{ env.REGISTRY }}
-        if: github.event_name != 'pull_request'
-        uses: docker/login-action@v3.2.0
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Set Repository Owner to Lowercase
-        id: repo_owner
-        run: |
-          REPOSITORY_OWNER_LOWER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
-          echo "REPOSITORY_OWNER_LOWER=$REPOSITORY_OWNER_LOWER" >> $GITHUB_ENV
-
-      # Extract metadata (tags, labels) for Docker
-      # https://github.com/docker/metadata-action
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@v5.5.1
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}
-          labels: |
-            org.opencontainers.image.title=${{ matrix.docker.name }}
-
-      # Build and push Docker image with Buildx (don't push on PR)
-      # https://github.com/docker/build-push-action
-      - name: Build and Push Docker Image (${{ matrix.docker.path }})
-        id: build-and-push
-        uses: docker/build-push-action@v6
-        with:
-          context: ${{ matrix.docker.path }}
-          platforms: linux/amd64,linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }}
-          cache-to: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }},mode=max
-
-      # Sign the resulting Docker image digest except on PRs.
-      # This will only write to the public Rekor transparency log when the Docker
-      # repository is public to avoid leaking data.  If you would like to publish
-      # transparency data even for private images, pass --force to cosign below.
-      # https://github.com/sigstore/cosign
-      - name: Sign the published Docker image
-        if: ${{ github.event_name != 'pull_request' }}
-        env:
-          COSIGN_EXPERIMENTAL: "true"
-        # This step uses the identity token to provision an ephemeral certificate
-        # against the sigstore community Fulcio instance.
-        run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
-
-
-  build-sbt-liberica:
-    needs: build-java-liberica
-
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      # This is used to complete the identity challenge
-      # with sigstore/fulcio when running outside of PRs.
-      id-token: write
-
-    strategy:
-      matrix:
-        docker:
-          - { name: "sbt-java8-liberica",  path: "sbt/liberica/java8" }
-          - { name: "sbt-java11-liberica", path: "sbt/liberica/java11" }
-          - { name: "sbt-java17-liberica", path: "sbt/liberica/java17" }
-          - { name: "sbt-java21-liberica", path: "sbt/liberica/java21" }
+          - { name: "ubuntu-sbt-java8-temurin",  path: "ubuntu/sbt/temurin/java8" }
+          - { name: "ubuntu-sbt-java11-temurin", path: "ubuntu/sbt/temurin/java11" }
+          - { name: "ubuntu-sbt-java17-temurin", path: "ubuntu/sbt/temurin/java17" }
+          - { name: "ubuntu-sbt-java21-temurin", path: "ubuntu/sbt/temurin/java21" }
 
     steps:
       - name: Checkout repository
@@ -475,8 +383,8 @@ jobs:
         run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
 
-  build-sbt-temurin-codecov:
-    needs: build-sbt-temurin
+  build-ubuntu-sbt-liberica:
+    needs: build-ubuntu-java-liberica
 
     runs-on: ubuntu-latest
     permissions:
@@ -489,10 +397,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "sbt-java8-temurin-codecov",  path: "sbt/temurin/java8-codecov" }
-          - { name: "sbt-java11-temurin-codecov", path: "sbt/temurin/java11-codecov" }
-          - { name: "sbt-java17-temurin-codecov", path: "sbt/temurin/java17-codecov" }
-          - { name: "sbt-java21-temurin-codecov", path: "sbt/temurin/java21-codecov" }
+          - { name: "ubuntu-sbt-java8-liberica",  path: "ubuntu/sbt/liberica/java8" }
+          - { name: "ubuntu-sbt-java11-liberica", path: "ubuntu/sbt/liberica/java11" }
+          - { name: "ubuntu-sbt-java17-liberica", path: "ubuntu/sbt/liberica/java17" }
+          - { name: "ubuntu-sbt-java21-liberica", path: "ubuntu/sbt/liberica/java21" }
 
     steps:
       - name: Checkout repository
@@ -567,8 +475,8 @@ jobs:
         run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
 
-  build-sbt-liberica-codecov:
-    needs: build-sbt-liberica
+  build-ubuntu-sbt-temurin-codecov:
+    needs: build-ubuntu-sbt-temurin
 
     runs-on: ubuntu-latest
     permissions:
@@ -581,10 +489,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "sbt-java8-liberica-codecov",  path: "sbt/liberica/java8-codecov" }
-          - { name: "sbt-java11-liberica-codecov", path: "sbt/liberica/java11-codecov" }
-          - { name: "sbt-java17-liberica-codecov", path: "sbt/liberica/java17-codecov" }
-          - { name: "sbt-java21-liberica-codecov", path: "sbt/liberica/java21-codecov" }
+          - { name: "ubuntu-sbt-java8-temurin-codecov",  path: "ubuntu/sbt/temurin/java8-codecov" }
+          - { name: "ubuntu-sbt-java11-temurin-codecov", path: "ubuntu/sbt/temurin/java11-codecov" }
+          - { name: "ubuntu-sbt-java17-temurin-codecov", path: "ubuntu/sbt/temurin/java17-codecov" }
+          - { name: "ubuntu-sbt-java21-temurin-codecov", path: "ubuntu/sbt/temurin/java21-codecov" }
 
     steps:
       - name: Checkout repository
@@ -659,8 +567,8 @@ jobs:
         run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
 
-  build-sbt-temurin-jekyll:
-    needs: build-sbt-temurin
+  build-ubuntu-sbt-liberica-codecov:
+    needs: build-ubuntu-sbt-liberica
 
     runs-on: ubuntu-latest
     permissions:
@@ -673,10 +581,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "sbt-java8-temurin-jekyll",  path: "sbt/temurin/java8-jekyll" }
-          - { name: "sbt-java11-temurin-jekyll", path: "sbt/temurin/java11-jekyll" }
-          - { name: "sbt-java17-temurin-jekyll", path: "sbt/temurin/java17-jekyll" }
-          - { name: "sbt-java21-temurin-jekyll", path: "sbt/temurin/java21-jekyll" }
+          - { name: "ubuntu-sbt-java8-liberica-codecov",  path: "ubuntu/sbt/liberica/java8-codecov" }
+          - { name: "ubuntu-sbt-java11-liberica-codecov", path: "ubuntu/sbt/liberica/java11-codecov" }
+          - { name: "ubuntu-sbt-java17-liberica-codecov", path: "ubuntu/sbt/liberica/java17-codecov" }
+          - { name: "ubuntu-sbt-java21-liberica-codecov", path: "ubuntu/sbt/liberica/java21-codecov" }
 
     steps:
       - name: Checkout repository
@@ -751,8 +659,8 @@ jobs:
         run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
 
 
-  build-sbt-liberica-jekyll:
-    needs: build-sbt-liberica
+  build-ubuntu-sbt-temurin-jekyll:
+    needs: build-ubuntu-sbt-temurin
 
     runs-on: ubuntu-latest
     permissions:
@@ -765,10 +673,102 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "sbt-java8-liberica-jekyll",  path: "sbt/liberica/java8-jekyll" }
-          - { name: "sbt-java11-liberica-jekyll", path: "sbt/liberica/java11-jekyll" }
-          - { name: "sbt-java17-liberica-jekyll", path: "sbt/liberica/java17-jekyll" }
-          - { name: "sbt-java21-liberica-jekyll", path: "sbt/liberica/java21-jekyll" }
+          - { name: "ubuntu-sbt-java8-temurin-jekyll",  path: "ubuntu/sbt/temurin/java8-jekyll" }
+          - { name: "ubuntu-sbt-java11-temurin-jekyll", path: "ubuntu/sbt/temurin/java11-jekyll" }
+          - { name: "ubuntu-sbt-java17-temurin-jekyll", path: "ubuntu/sbt/temurin/java17-jekyll" }
+          - { name: "ubuntu-sbt-java21-temurin-jekyll", path: "ubuntu/sbt/temurin/java21-jekyll" }
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Install the cosign tool except on PR
+      # https://github.com/sigstore/cosign-installer
+      - name: Install cosign
+        if: github.event_name != 'pull_request'
+        uses: sigstore/cosign-installer@59acb6260d9c0ba8f4a2f9d9b48431a222b68e20 #v3.0.3
+        with:
+          cosign-release: 'v1.13.1'
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3.1.0
+
+      # Workaround: https://github.com/docker/build-push-action/issues/461
+      - name: Setup Docker buildx
+        uses: docker/setup-buildx-action@v3.4.0
+
+      # Login against a Docker registry except on PR
+      # https://github.com/docker/login-action
+      - name: Log into registry ${{ env.REGISTRY }}
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3.2.0
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Repository Owner to Lowercase
+        id: repo_owner
+        run: |
+          REPOSITORY_OWNER_LOWER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          echo "REPOSITORY_OWNER_LOWER=$REPOSITORY_OWNER_LOWER" >> $GITHUB_ENV
+
+      # Extract metadata (tags, labels) for Docker
+      # https://github.com/docker/metadata-action
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5.5.1
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.REPOSITORY_OWNER_LOWER }}/${{ matrix.docker.name }}
+          labels: |
+            org.opencontainers.image.title=${{ matrix.docker.name }}
+
+      # Build and push Docker image with Buildx (don't push on PR)
+      # https://github.com/docker/build-push-action
+      - name: Build and Push Docker Image (${{ matrix.docker.path }})
+        id: build-and-push
+        uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.docker.path }}
+          platforms: linux/amd64,linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }}
+          cache-to: type=gha,scope=${{ env.GITHUB_REF_NAME }}-${{ matrix.docker.name }},mode=max
+
+      # Sign the resulting Docker image digest except on PRs.
+      # This will only write to the public Rekor transparency log when the Docker
+      # repository is public to avoid leaking data.  If you would like to publish
+      # transparency data even for private images, pass --force to cosign below.
+      # https://github.com/sigstore/cosign
+      - name: Sign the published Docker image
+        if: ${{ github.event_name != 'pull_request' }}
+        env:
+          COSIGN_EXPERIMENTAL: "true"
+        # This step uses the identity token to provision an ephemeral certificate
+        # against the sigstore community Fulcio instance.
+        run: echo "${{ steps.build-and-push.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+
+
+  build-ubuntu-sbt-liberica-jekyll:
+    needs: build-ubuntu-sbt-liberica
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      # This is used to complete the identity challenge
+      # with sigstore/fulcio when running outside of PRs.
+      id-token: write
+
+    strategy:
+      matrix:
+        docker:
+          - { name: "ubuntu-sbt-java8-liberica-jekyll",  path: "ubuntu/sbt/liberica/java8-jekyll" }
+          - { name: "ubuntu-sbt-java11-liberica-jekyll", path: "ubuntu/sbt/liberica/java11-jekyll" }
+          - { name: "ubuntu-sbt-java17-liberica-jekyll", path: "ubuntu/sbt/liberica/java17-jekyll" }
+          - { name: "ubuntu-sbt-java21-liberica-jekyll", path: "ubuntu/sbt/liberica/java21-jekyll" }
 
     steps:
       - name: Checkout repository

@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/node:main
+FROM ghcr.io/kevin-lee/ubuntu-node:main
 
 RUN mkdir -p /etc/apt/keyrings \
   && wget -qO - https://download.bell-sw.com/pki/GPG-KEY-bellsoft | gpg --dearmor -o /usr/share/keyrings/bellsoft-keyring.gpg \

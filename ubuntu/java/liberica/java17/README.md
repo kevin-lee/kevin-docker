@@ -2,20 +2,20 @@
 
 * Build locally
   ```shell
-  docker build -t java17-liberica:local .
+  docker build -t ubuntu-java17-liberica:local .
   ```
 
 * Run locally in interactive mode
   ```shell
-  docker run -i -t java17-liberica:local bash
+  docker run -i -t ubuntu-java17-liberica:local bash
   ```
 
 * Pull the image
   ```shell
-  docker pull ghcr.io/kevin-lee/java17-liberica:main
+  docker pull ghcr.io/kevin-lee/ubuntu-java17-liberica:main
   ```
 
 * Run in interactive mode
   ```shell
-  docker run -i -t ghcr.io/kevin-lee/java17-liberica:main bash
+  docker run -i -t ghcr.io/kevin-lee/ubuntu-java17-liberica:main bash
   ```

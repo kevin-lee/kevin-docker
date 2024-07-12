@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/node:main
+FROM ghcr.io/kevin-lee/ubuntu-node:main
 
 RUN mkdir -p /etc/apt/keyrings \
   && wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc \
