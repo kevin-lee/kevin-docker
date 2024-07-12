@@ -1,7 +1,10 @@
 # kevin-docker
 
-## v14
-`v14` contains Docker image with sbt `1.9.9` with Temurin and Liberica JDK.
+## v16
+`v16` contains Docker image with sbt `1.9.9` with Temurin and Liberica JDK.
+
+## v15
+`v15` contains Docker image with sbt `1.9.9` with Temurin and Liberica JDK.
 
 ## v14
 `v14` contains Docker image with sbt `1.9.9` with Java8, 11, 17 and 21.
