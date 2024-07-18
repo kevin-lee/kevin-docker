@@ -946,7 +946,7 @@ jobs:
       matrix:
         docker:
           - { name: "ubuntu-java8-liberica",  path: "ubuntu/java/liberica/java8" }
-#          - { name: "ubuntu-java11-liberica", path: "ubuntu/java/liberica/java11" }
+          - { name: "ubuntu-java11-liberica", path: "ubuntu/java/liberica/java11" }
 #          - { name: "ubuntu-java17-liberica", path: "ubuntu/java/liberica/java17" }
 #          - { name: "ubuntu-java21-liberica", path: "ubuntu/java/liberica/java21" }
 
