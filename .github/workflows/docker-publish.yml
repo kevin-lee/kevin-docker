@@ -1040,7 +1040,7 @@ jobs:
           - { name: "alpine-java8-temurin",  path: "alpine/java/temurin/java8", platforms: "linux/amd64" }
           - { name: "alpine-java11-temurin", path: "alpine/java/temurin/java11", platforms: "linux/amd64" }
           - { name: "alpine-java17-temurin", path: "alpine/java/temurin/java17", platforms: "linux/amd64" }
-#          - { name: "alpine-java21-temurin", path: "alpine/java/temurin/java21", platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java21-temurin", path: "alpine/java/temurin/java21", platforms: "linux/amd64,linux/arm64" }
 
     steps:
       - name: Checkout repository
