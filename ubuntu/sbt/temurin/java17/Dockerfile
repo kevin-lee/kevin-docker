@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/java17-temurin:main
+FROM ghcr.io/kevin-lee/ubuntu-java17-temurin:main
 
 ARG SBT_VERSION_ARG=1.9.9
 

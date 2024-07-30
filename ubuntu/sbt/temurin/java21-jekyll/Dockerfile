@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/sbt-java21-temurin:main
+FROM ghcr.io/kevin-lee/ubuntu-sbt-java21-temurin:main
 
 RUN apt update \
   && apt-get install -y apt-utils nodejs npm fakeroot ruby-full build-essential zlib1g-dev \

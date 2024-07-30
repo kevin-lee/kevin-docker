@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/java21-liberica:main
+FROM ghcr.io/kevin-lee/ubuntu-java21-liberica:main
 
 ARG SBT_VERSION_ARG=1.9.9
 

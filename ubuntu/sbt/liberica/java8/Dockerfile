@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/java8-liberica:main
+FROM ghcr.io/kevin-lee/ubuntu-java8-liberica:main
 
 ARG SBT_VERSION_ARG=1.9.9
 
