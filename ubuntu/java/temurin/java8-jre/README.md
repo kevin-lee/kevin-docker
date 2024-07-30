@@ -1,21 +1,21 @@
-# Node + Java 8 (Adoptium)
+# Node + Java 8 (Adoptium JRE)
 
 * Build locally
   ```shell
-  docker build -t java8-jre-temurin:local .
+  docker build -t ubuntu-java8-jre-temurin:local .
   ```
 
 * Run locally in interactive mode
   ```shell
-  docker run -i -t java8-jre-temurin:local bash
+  docker run -i -t ubuntu-java8-jre-temurin:local bash
   ```
 
 * Pull the image
   ```shell
-  docker pull ghcr.io/kevin-lee/java8-jre-temurin:main
+  docker pull ghcr.io/kevin-lee/ubuntu-java8-jre-temurin:main
   ```
 
 * Run in interactive mode
   ```shell
-  docker run -i -t ghcr.io/kevin-lee/java8-jre-temurin:main bash
+  docker run -i -t ghcr.io/kevin-lee/ubuntu-java8-jre-temurin:main bash
   ```

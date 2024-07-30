@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/sbt-java21-liberica:main
+FROM ghcr.io/kevin-lee/ubuntu-sbt-java21-liberica:main
 
 RUN curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import \
   && curl -Os https://uploader.codecov.io/latest/linux/codecov \

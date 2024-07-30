@@ -1,4 +1,4 @@
-FROM ghcr.io/kevin-lee/sbt-java17-temurin:main
+FROM ghcr.io/kevin-lee/ubuntu-sbt-java17-temurin:main
 
 RUN curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import \
   && curl -Os https://uploader.codecov.io/latest/linux/codecov \

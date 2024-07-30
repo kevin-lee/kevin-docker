@@ -1,4 +1,4 @@
-# Node + Java 8 (Liberica JDK)
+# Node + Java 8 (Liberica JDK Runtime)
 
 * Build locally
   ```shell
