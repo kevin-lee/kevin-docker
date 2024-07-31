@@ -949,10 +949,10 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "ubuntu-java8-liberica",  path: "ubuntu/java/liberica/java8" }
-          - { name: "ubuntu-java11-liberica", path: "ubuntu/java/liberica/java11" }
-          - { name: "ubuntu-java17-liberica", path: "ubuntu/java/liberica/java17" }
-          - { name: "ubuntu-java21-liberica", path: "ubuntu/java/liberica/java21" }
+          - { name: "alpine-java8-liberica",  path: "alpine/java/liberica/java8" }
+          - { name: "alpine-java11-liberica", path: "alpine/java/liberica/java11" }
+          - { name: "alpine-java17-liberica", path: "alpine/java/liberica/java17" }
+          - { name: "alpine-java21-liberica", path: "alpine/java/liberica/java21" }
 
     steps:
       - name: Checkout repository
