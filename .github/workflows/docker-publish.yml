@@ -940,7 +940,7 @@ jobs:
 
 
   build-alpine-java-liberica:
-    needs: build-ubuntu-node
+    needs: build-alpine-node
 
     runs-on: ubuntu-latest
     permissions:
