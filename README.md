@@ -25,10 +25,10 @@ It also includes Temurin and Liberica JDK for Ubuntu and Alpine
 | Alpine | Temurin     | 8           | 1.9.9 | ✅   | ✅   |
 | Alpine | Liberica    | 8           | 1.9.9 | ✅   | ✅   |
 | Alpine | Temurin     | 11          | ❌     | ✅   | ✅   |
-| Alpine | Liberica    | 11          | ❌     | ✅   | ❌   |
-| Alpine | Temurin     | 17          | ❌     | ✅   | ✅   |
-| Alpine | Liberica    | 17          | ❌     | ✅   | ❌   |
-| Alpine | Temurin     | 21          | ❌     | ✅   | ✅   |
+| Alpine | Liberica    | 11          | ❌     | ✅   | ✅   |
+| Alpine | Temurin     | 17          | ❌     | ✅   | ❌   |
+| Alpine | Liberica    | 17          | ❌     | ✅   | ✅   |
+| Alpine | Temurin     | 21          | ❌     | ✅   | ❌   |
 | Alpine | Liberica    | 21          | ❌     | ✅   | ✅   |
 
 ## v17
