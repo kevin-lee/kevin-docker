@@ -1,5 +1,36 @@
 # kevin-docker
 
+## v18
+
+`v18` contains Docker image with sbt `1.9.9` with Temurin and Liberica JDK.
+It also includes Temurin and Liberica JDK for Ubuntu and Alpine
+
+### Java for Ubuntu
+
+| OS     | Java distro | JDK Version | sbt   | AMD | ARM |
+|--------|-------------|-------------|-------|-----|-----|
+| Ubuntu | Temurin     | 8           | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 8           | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Temurin     | 11          | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 11          | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Temurin     | 17          | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 17          | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Temurin     | 21          | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 21          | 1.9.9 | ✅   | ✅   |
+
+### Java for Alpine
+
+| OS     | Java distro | JDK Version | sbt   | AMD | ARM |
+|--------|-------------|-------------|-------|-----|-----|
+| Alpine | Temurin     | 8           | 1.9.9 | ✅   | ✅   |
+| Alpine | Liberica    | 8           | 1.9.9 | ✅   | ✅   |
+| Alpine | Temurin     | 11          | ❌     | ✅   | ✅   |
+| Alpine | Liberica    | 11          | ❌     | ✅   | ❌   |
+| Alpine | Temurin     | 17          | ❌     | ✅   | ✅   |
+| Alpine | Liberica    | 17          | ❌     | ✅   | ❌   |
+| Alpine | Temurin     | 21          | ❌     | ✅   | ✅   |
+| Alpine | Liberica    | 21          | ❌     | ✅   | ✅   |
+
 ## v17
 
 `v17` contains Docker image with sbt `1.9.9` with Temurin and Liberica JDK.
@@ -7,29 +38,29 @@ It also includes Temurin and Liberica JDK for Ubuntu and Alpine
 
 ### Java for Ubuntu
 
-| OS     | Distribution | JDK Version | AMD | ARM |
-|--------|--------------|-------------|-----|-----|
-| Ubuntu | Temurin      | 8           | ✅   | ✅   |
-| Ubuntu | Liberica     | 8           | ✅   | ✅   |
-| Ubuntu | Temurin      | 11          | ✅   | ✅   |
-| Ubuntu | Liberica     | 11          | ✅   | ✅   |
-| Ubuntu | Temurin      | 17          | ✅   | ✅   |
-| Ubuntu | Liberica     | 17          | ✅   | ✅   |
-| Ubuntu | Temurin      | 21          | ✅   | ✅   |
-| Ubuntu | Liberica     | 21          | ✅   | ✅   |
+| OS     | Java distro | JDK Version | AMD | ARM |
+|--------|-------------|-------------|-----|-----|
+| Ubuntu | Temurin     | 8           | ✅   | ✅   |
+| Ubuntu | Liberica    | 8           | ✅   | ✅   |
+| Ubuntu | Temurin     | 11          | ✅   | ✅   |
+| Ubuntu | Liberica    | 11          | ✅   | ✅   |
+| Ubuntu | Temurin     | 17          | ✅   | ✅   |
+| Ubuntu | Liberica    | 17          | ✅   | ✅   |
+| Ubuntu | Temurin     | 21          | ✅   | ✅   |
+| Ubuntu | Liberica    | 21          | ✅   | ✅   |
 
 ### Java for Alpine
 
-| OS     | Distribution | JDK Version | AMD | ARM |
-|--------|--------------|-------------|-----|-----|
-| Alpine | Temurin      | 8           | ✅   | ✅   |
-| Alpine | Liberica     | 8           | ✅   | ✅   |
-| Alpine | Temurin      | 11          | ✅   | ✅   |
-| Alpine | Liberica     | 11          | ✅   | ❌   |
-| Alpine | Temurin      | 17          | ✅   | ✅   |
-| Alpine | Liberica     | 17          | ✅   | ❌   |
-| Alpine | Temurin      | 21          | ✅   | ✅   |
-| Alpine | Liberica     | 21          | ✅   | ✅   |
+| OS     | Java distro | JDK Version | AMD | ARM |
+|--------|-------------|-------------|-----|-----|
+| Alpine | Temurin     | 8           | ✅   | ✅   |
+| Alpine | Liberica    | 8           | ✅   | ✅   |
+| Alpine | Temurin     | 11          | ✅   | ✅   |
+| Alpine | Liberica    | 11          | ✅   | ❌   |
+| Alpine | Temurin     | 17          | ✅   | ✅   |
+| Alpine | Liberica    | 17          | ✅   | ❌   |
+| Alpine | Temurin     | 21          | ✅   | ✅   |
+| Alpine | Liberica    | 21          | ✅   | ✅   |
 
 ## v16
 
