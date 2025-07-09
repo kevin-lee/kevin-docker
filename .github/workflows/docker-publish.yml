@@ -1138,7 +1138,7 @@ jobs:
       matrix:
         docker:
           - { name: "alpine-sbt-java8-liberica",  path: "alpine/sbt/liberica/java8" }
-#          - { name: "alpine-sbt-java11-liberica", path: "alpine/sbt/liberica/java11" }
+          - { name: "alpine-sbt-java11-liberica", path: "alpine/sbt/liberica/java11" }
 #          - { name: "alpine-sbt-java17-liberica", path: "alpine/sbt/liberica/java17" }
           - { name: "alpine-sbt-java21-liberica", path: "alpine/sbt/liberica/java21" }
 
@@ -1230,7 +1230,7 @@ jobs:
       matrix:
         docker:
           - { name: "alpine-sbt-java8-temurin",  path: "alpine/sbt/temurin/java8" }
-#          - { name: "alpine-sbt-java11-temurin", path: "alpine/sbt/temurin/java11" }
+          - { name: "alpine-sbt-java11-temurin", path: "alpine/sbt/temurin/java11" }
 #          - { name: "alpine-sbt-java17-temurin", path: "alpine/sbt/temurin/java17" }
           - { name: "alpine-sbt-java21-temurin", path: "alpine/sbt/temurin/java21" }
 
