@@ -1,4 +1,4 @@
-# Node + Java 17 (Adoptium)
+# Node + Java 17 (Eclipse Temurin JRE)
 
 * Build locally
   ```shell
