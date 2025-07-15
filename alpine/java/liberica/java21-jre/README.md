@@ -1,4 +1,4 @@
-# Node + Java 21 (Liberica JDK)
+# Node + Java 21 (Liberica JRE)
 
 * Build locally
   ```shell
