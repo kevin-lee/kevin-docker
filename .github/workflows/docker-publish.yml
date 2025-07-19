@@ -45,9 +45,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -140,9 +140,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -235,9 +235,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -326,9 +326,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -418,9 +418,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -510,9 +510,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -602,9 +602,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -694,9 +694,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -786,9 +786,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -874,9 +874,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -966,9 +966,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -1058,9 +1058,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -1150,9 +1150,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
@@ -1242,9 +1242,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@d58896d6a1865668819e1d91763c7751a165e159 #v3.0.3
+        uses: sigstore/cosign-installer@v3.9.2
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3.6.0
