@@ -953,10 +953,14 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "alpine-java8-liberica",  path: "alpine/java/liberica/java8" }
-          - { name: "alpine-java11-liberica", path: "alpine/java/liberica/java11" }
-          - { name: "alpine-java17-liberica", path: "alpine/java/liberica/java17" }
-          - { name: "alpine-java21-liberica", path: "alpine/java/liberica/java21" }
+          - { name: "alpine-java8-liberica",      path: "alpine/java/liberica/java8" }
+          - { name: "alpine-java8-jre-liberica",  path: "alpine/java/liberica/java8-jre" }
+          - { name: "alpine-java11-liberica",     path: "alpine/java/liberica/java11" }
+          - { name: "alpine-java11-jre-liberica", path: "alpine/java/liberica/java11-jre" }
+          - { name: "alpine-java17-liberica",     path: "alpine/java/liberica/java17" }
+          - { name: "alpine-java17-jre-liberica", path: "alpine/java/liberica/java17-jre" }
+          - { name: "alpine-java21-liberica",     path: "alpine/java/liberica/java21" }
+          - { name: "alpine-java21-jre-liberica", path: "alpine/java/liberica/java21-jre" }
 
     steps:
       - name: Checkout repository
@@ -1045,10 +1049,14 @@ jobs:
     strategy:
       matrix:
         docker:
-          - { name: "alpine-java8-temurin",  path: "alpine/java/temurin/java8", platforms: "linux/amd64,linux/arm64" }
-          - { name: "alpine-java11-temurin", path: "alpine/java/temurin/java11", platforms: "linux/amd64,linux/arm64" }
-          - { name: "alpine-java17-temurin", path: "alpine/java/temurin/java17", platforms: "linux/amd64,linux/arm64" }
-          - { name: "alpine-java21-temurin", path: "alpine/java/temurin/java21", platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java8-temurin",      path: "alpine/java/temurin/java8",      platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java8-jre-temurin",  path: "alpine/java/temurin/java8-jre",  platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java11-temurin",     path: "alpine/java/temurin/java11",     platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java11-jre-temurin", path: "alpine/java/temurin/java11-jre", platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java17-temurin",     path: "alpine/java/temurin/java17",     platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java17-jre-temurin", path: "alpine/java/temurin/java17-jre", platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java21-temurin",     path: "alpine/java/temurin/java21",     platforms: "linux/amd64,linux/arm64" }
+          - { name: "alpine-java21-jre-temurin", path: "alpine/java/temurin/java21-jre", platforms: "linux/amd64,linux/arm64" }
 
     steps:
       - name: Checkout repository
