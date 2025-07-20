@@ -1,27 +1,28 @@
+# Multi-stage build to copy Node.js from official Alpine images
+FROM node:18.20.8-alpine AS node18
+FROM node:20.19.4-alpine AS node20
+FROM node:22.17.1-alpine AS node22
+
 FROM alpine:latest
 
 RUN apk update \
-    && apk add --no-cache bash npm curl wget gnupg vim git
+    && apk add --no-cache bash npm curl wget gnupg vim git unzip libstdc++
 
-# Node
-ARG NODE_18_VERSION_ARG=18.20.8
-ARG NODE_20_VERSION_ARG=20.19.4
-ARG NODE_22_VERSION_ARG=22.17.1
-ARG DEFAULT_NODE_VERSION_ARG=$NODE_22_VERSION_ARG
+# Copy Node.js installations from official Alpine images
+COPY --from=node18 /usr/local /usr/local/node18
+COPY --from=node20 /usr/local /usr/local/node20
+COPY --from=node22 /usr/local /usr/local/node22
 
-ENV NVM_DIR /usr/local/nvm
+# Create version-specific symlinks
+RUN ln -s /usr/local/node18/bin/node /usr/local/bin/node18 \
+  && ln -s /usr/local/node18/bin/npm /usr/local/bin/npm18 \
+  && ln -s /usr/local/node20/bin/node /usr/local/bin/node20 \
+  && ln -s /usr/local/node20/bin/npm /usr/local/bin/npm20 \
+  && ln -s /usr/local/node22/bin/node /usr/local/bin/node22 \
+  && ln -s /usr/local/node22/bin/npm /usr/local/bin/npm22 \
+  && ln -s /usr/local/node22/bin/node /usr/local/bin/node \
+  && ln -s /usr/local/node22/bin/npm /usr/local/bin/npm
 
-RUN mkdir -p $NVM_DIR \
-  && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
-  && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  \
-  && nvm --version \
-  && nvm install ${NODE_18_VERSION_ARG} \
-  && nvm install ${NODE_20_VERSION_ARG} \
-  && nvm install ${NODE_22_VERSION_ARG} \
-  && nvm alias default ${DEFAULT_NODE_VERSION_ARG}
-
-ENV PATH $NVM_DIR/versions/node/v${DEFAULT_NODE_VERSION_ARG}/bin:$PATH
-
-#RUN echo 'source $NVM_DIR/nvm.sh' > /root/env_setup.sh \
-#    && echo 'source /root/env_setup.sh' >> /etc/profile \
-#    && echo 'source /root/env_setup.sh' >> /etc/bash.bashrc
+# Set default Node.js version (22) in PATH
+ENV PATH="/usr/local/node22/bin:$PATH"
+ENV NODE_PATH="/usr/local/node22/lib/node_modules"
