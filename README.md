@@ -1,6 +1,6 @@
 # kevin-docker
 
-## v24
+## v25
 
 ### Java for Ubuntu
 
@@ -30,7 +30,7 @@
 
 ***
 
-`v24` contains Docker image with Node.js support for Ubuntu and Alpine Linux.
+`v25` contains Docker image with Node.js support for Ubuntu and Alpine Linux.
 It includes multiple Node.js versions with compatibility for both platforms.
 
 ### Node.js for Ubuntu
@@ -48,6 +48,82 @@ It includes multiple Node.js versions with compatibility for both platforms.
 | Alpine | Node.js | 18.20.8   | 10.8.2 | ✅   | ✅   |
 | Alpine | Node.js | 20.19.4   | 10.9.0 | ✅   | ✅   |
 | Alpine | Node.js | 22.17.1   | 10.9.2 | ✅   | ✅   |
+
+**Usage:**
+- Default: `node --version` (`v22.17.1`)
+- Specific versions: `node18`, `node20`, `node22`
+- Version-specific npm: `npm18`, `npm20`, `npm22`
+
+***
+
+## v24
+
+### Java for Ubuntu
+
+<details>
+<summary>Click to expand Ubuntu Java compatibility table</summary>
+
+| OS     | Java distro | Java<br/>Version | sbt   | AMD | ARM |
+|--------|-------------|------------------|-------|-----|-----|
+| Ubuntu | Temurin     | 8                | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 8                | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Temurin     | 11               | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 11               | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Temurin     | 17               | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 17               | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Temurin     | 21               | 1.9.9 | ✅   | ✅   |
+| Ubuntu | Liberica    | 21               | 1.9.9 | ✅   | ✅   |
+
+</details>
+
+### Java for Alpine
+
+<details>
+<summary>Click to expand Alpine Java compatibility table</summary>
+
+| OS     | Java distro | Java<br/>Version | sbt   | AMD | ARM |
+|--------|-------------|------------------|-------|-----|-----|
+| Alpine | Temurin     | 8                | 1.9.9 | ✅   | ✅   |
+| Alpine | Liberica    | 8                | 1.9.9 | ✅   | ✅   |
+| Alpine | Temurin     | 11               | 1.9.9 | ✅   | ✅   |
+| Alpine | Liberica    | 11               | 1.9.9 | ✅   | ✅   |
+| Alpine | Temurin     | 17               | 1.9.9 | ✅   | ✅   |
+| Alpine | Liberica    | 17               | 1.9.9 | ✅   | ✅   |
+| Alpine | Temurin     | 21               | 1.9.9 | ✅   | ✅   |
+| Alpine | Liberica    | 21               | 1.9.9 | ✅   | ✅   |
+
+</details>
+
+***
+
+`v24` contains Docker image with Node.js support for Ubuntu and Alpine Linux.
+It includes multiple Node.js versions with compatibility for both platforms.
+
+### Node.js for Ubuntu
+
+<details>
+<summary>Click to expand Ubuntu Node compatibility table</summary>
+
+| OS     | Runtime | Version   | nvm    | AMD | ARM |
+|--------|---------|-----------|--------|-----|-----|
+| Ubuntu | Node.js | 18.20.8   | 0.39.3 | ✅   | ✅   |
+| Ubuntu | Node.js | 20.19.4   | 0.39.3 | ✅   | ✅   |
+| Ubuntu | Node.js | 22.17.1   | 0.39.3 | ✅   | ✅   |
+
+</details>
+
+### Node.js for Alpine
+
+<details>
+<summary>Click to expand Alpine Node compatibility table</summary>
+
+| OS     | Runtime | Version   | npm    | AMD | ARM |
+|--------|---------|-----------|--------|-----|-----|
+| Alpine | Node.js | 18.20.8   | 10.8.2 | ✅   | ✅   |
+| Alpine | Node.js | 20.19.4   | 10.9.0 | ✅   | ✅   |
+| Alpine | Node.js | 22.17.1   | 10.9.2 | ✅   | ✅   |
+
+</details>
 
 **Usage:**
 - Default: `node --version` (`v22.17.1`)
