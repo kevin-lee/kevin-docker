@@ -50,7 +50,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -145,7 +145,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -240,7 +240,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -331,7 +331,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -423,7 +423,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -515,7 +515,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -607,7 +607,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -699,7 +699,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -791,7 +791,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -879,7 +879,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -975,7 +975,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -1071,7 +1071,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -1163,7 +1163,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -1255,7 +1255,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -1347,7 +1347,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
@@ -1439,7 +1439,7 @@ jobs:
           cosign-release: 'v2.5.3'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3.6.0
+        uses: docker/setup-qemu-action@v3.7.0
 
       # Workaround: https://github.com/docker/build-push-action/issues/461
       - name: Setup Docker buildx
